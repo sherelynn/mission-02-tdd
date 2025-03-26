@@ -1,0 +1,23 @@
+{
+  "name": "mission-2-girl-power",
+  "version": "1.0.0",
+  "description": "Replace me with an introduction to the project.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MR-2025-PT-March-L5ADV/mission-2-girl-power.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MR-2025-PT-March-L5ADV/mission-2-girl-power/issues"
+  },
+  "homepage": "https://github.com/MR-2025-PT-March-L5ADV/mission-2-girl-power#readme",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
