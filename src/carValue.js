@@ -5,7 +5,7 @@
  * @param {number} year - The manufacturing year of the car.
  * @returns {object} - An object containing either the calculated car value or an error message.
  */
-function calculateCarValue(model, year) {
+const calculateCarValue = (model, year) => {
   // Validate inputs: model must be a non-empty string, year must be a valid number within a reasonable range.
   if (!model || typeof model !== 'string' || !year || typeof year !== 'number' || year < 0 || year > new Date().getFullYear()) {
     return { error: "there is an error" }; // Return error if inputs are invalid.

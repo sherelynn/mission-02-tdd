@@ -1,5 +1,5 @@
 // Import the function to be tested
-const calculateCarValue = require("../src/carValue");
+import calculateCarValue from "../src/carValue";
 
 // Group related tests under a single describe block
 describe("Car Value API Tests", () => {
