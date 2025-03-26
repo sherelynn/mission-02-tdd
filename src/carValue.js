@@ -46,4 +46,4 @@ function calculateCarValue(model, year) {
 }
 
 // Export the function for use in other files (e.g., for testing).
-module.exports = calculateCarValue;
+export default calculateCarValue;
