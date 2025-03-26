@@ -1,3 +1,5 @@
+// src/carValue.js
+
 /**
  * Function to calculate the value of a car based on its model and year.
  * 
@@ -5,15 +7,10 @@
  * @param {number} year - The manufacturing year of the car.
  * @returns {object} - An object containing either the calculated car value or an error message.
  */
-const calculateCarValue = (model, year) => {
+function calculateCarValue(model, year) {
   // Validate inputs: model must be a non-empty string, year must be a valid number within a reasonable range.
   if (!model || typeof model !== 'string' || !year || typeof year !== 'number' || year < 0 || year > new Date().getFullYear()) {
     return { error: "there is an error" }; // Return error if inputs are invalid.
-  }
-
-  // If the model contains only numbers, return the year as the car value.
-  if (/^\d+$/.test(model)) {
-    return { car_value: year };
   }
 
   // Clean the model string: remove leading/trailing spaces and special characters, keep only letters and numbers.
@@ -46,4 +43,4 @@ const calculateCarValue = (model, year) => {
 }
 
 // Export the function for use in other files (e.g., for testing).
-export default calculateCarValue;
+module.exports = calculateCarValue;
