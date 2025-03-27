@@ -61,10 +61,20 @@ describe("Insurance Service: Calculate Monthly and Yearly Premium", () => {
   })
 
   // Test Case 8: Edge Case: Car value is null
-  test.todo("car value is null and risk rating is 5")
+  test("car value is null and risk rating is 5", () => {
+    const carValue = null
+    const riskRating = 5
+    const result = calculateMonthlyAndYearlyPremium(carValue, riskRating)
+    expect(result.error).toBeTruthy()
+  })
 
   // Test Case 9: Edge Case: Risk rating is null
-  test.todo("car value is 5000 and risk rating is null")
+  test("car value is 5000 and risk rating is null", () => {
+    const carValue = 5000
+    const riskRating = null
+    const result = calculateMonthlyAndYearlyPremium(carValue, riskRating)
+    expect(result).toHaveProperty("error")
+  })
 
   // Test Case 10: Edge Case: Car value is undefined
   test.todo("car value is undefined and risk rating is 5")
