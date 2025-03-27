@@ -1,10 +1,10 @@
 const express = require("express")
+const insuranceRoutes = require("./routes/insuranceRoutes")
+const app = express()
 
-const api = express()
+app.use(express.urlencoded({ extended: true }))
+app.use(express.json())
 
-api.use(express.urlencoded({ extended: true }))
-api.use(express.json())
+app.use("/api/v1/calculate-premium", insuranceRoutes)
 
-api.get("/", (req, res) => {
-  res.status(200).json({ message: "Welcome to the Insurance API" })
-})
+module.exports = app
