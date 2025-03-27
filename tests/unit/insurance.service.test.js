@@ -53,7 +53,12 @@ describe("Insurance Service: Calculate Monthly and Yearly Premium", () => {
   })
 
   // Test Case 7: Edge Case: Risk rating is a string
-  test.todo("car value is 5000 and risk rating is '5'")
+  test("car value is 5000 and risk rating is '5'", () => {
+    const carValue = 5000
+    const riskRating = "5"
+    const result = calculateMonthlyAndYearlyPremium(carValue, riskRating)
+    expect(result).toEqual({ error: "Invalid risk rating" })
+  })
 
   // Test Case 8: Edge Case: Car value is null
   test.todo("car value is null and risk rating is 5")

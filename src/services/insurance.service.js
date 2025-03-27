@@ -4,7 +4,7 @@ function calculateMonthlyAndYearlyPremium(carValue, riskRating) {
     return { error: "Invalid car value" }
   }
 
-  if (riskRating < 1 || riskRating > 5) {
+  if (riskRating < 1 || riskRating > 5 || typeof riskRating !== "number") {
     return { error: "Invalid risk rating" }
   }
 
