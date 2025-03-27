@@ -197,10 +197,12 @@
     "yocto-queue": "^0.1.0"
   },
   "devDependencies": {
-    "@types/jest": "^29.5.14"
+    "@types/jest": "^29.5.14",
+    "supertest": "^7.1.0"
   },
   "scripts": {
     "test": "jest --watchAll --verbose",
+    "test:api": "jest tests/api --watchAll --verbose",
     "test:coverage": "jest --watchAll --coverage"
   },
   "keywords": [],
