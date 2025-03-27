@@ -1,8 +1,16 @@
-// This test suite verifies the functionality of calculating monthly and yearly insurance premiums
-// based on various inputs such as car value and risk rating, including edge cases.
+const {
+  calculateMonthlyAndYearlyPremium,
+} = require("../../src/services/insurance.service")
+
+// This test suite verifies the functionality of calculating monthly and yearly insurance premiums based on various inputs such as car value and risk rating, including edge cases.
 describe("Insurance Service: Calculate Monthly and Yearly Premium", () => {
   // Test Case 1: Standard Input: Within expected range
-  test.todo("car value is 5000 and risk rating is 5")
+  test("car value is 5000 and risk rating is 5", () => {
+    const carValue = 5000
+    const riskRating = 5
+    const result = calculateMonthlyAndYearlyPremium(carValue, riskRating)
+    expect(result).toStrictEqual({ monthlyPremium: 20.83, yearlyPremium: 250 })
+  })
 
   // Test Case 2: Edge Case: Car value is 0
   test.todo("car value is 0 and risk rating is 5")
