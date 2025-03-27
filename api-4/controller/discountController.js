@@ -11,8 +11,8 @@ module.exports = { calculateDiscount };
 
 // Code is looking really good!! Could also use else if - 
 // if (age >= 40) {
-        discount += 10; 
-    } else if (age >= 25) {
-        discount += 5;
-    }
+//      discount += 10; 
+//  } else if (age >= 25) {
+//      discount += 5;
+//  }
 // Can make it easier to modify if you add more conditions :)
