@@ -1,6 +1,6 @@
 function calculateMonthlyAndYearlyPremium(carValue, riskRating) {
   // Validate inputs
-  if (carValue <= 0) {
+  if (carValue <= 0 || typeof carValue !== "number") {
     return { error: "Invalid car value" }
   }
 
