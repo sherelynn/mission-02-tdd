@@ -77,8 +77,18 @@ describe("Insurance Service: Calculate Monthly and Yearly Premium", () => {
   })
 
   // Test Case 10: Edge Case: Car value is undefined
-  test.todo("car value is undefined and risk rating is 5")
+  test("car value is undefined and risk rating is 5", () => {
+    const carValue = undefined
+    const riskRating = 5
+    const result = calculateMonthlyAndYearlyPremium(carValue, riskRating)
+    expect(result.error).toBe("Invalid car value")
+  })
 
   // Test Case 11: Edge Case: Risk rating is undefined
-  test.todo("car value is 5000 and risk rating is undefined")
+  test("car value is 5000 and risk rating is undefined", () => {
+    const carValue = 5000
+    const riskRating = undefined
+    const result = calculateMonthlyAndYearlyPremium(carValue, riskRating)
+    expect(result.error).toBeDefined()
+  })
 })
