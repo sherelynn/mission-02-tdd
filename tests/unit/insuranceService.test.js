@@ -1,6 +1,6 @@
 const {
   calculateMonthlyAndYearlyPremium,
-} = require("../../src/services/insurance.service")
+} = require("../../src/services/insuranceService")
 
 // This test suite verifies the functionality of calculating monthly and yearly insurance premiums based on various inputs such as car value and risk rating, including edge cases.
 describe("Insurance Service: Calculate Monthly and Yearly Premium", () => {
