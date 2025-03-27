@@ -4,6 +4,10 @@ function calculateMonthlyAndYearlyPremium(carValue, riskRating) {
     return { error: "Invalid car value" }
   }
 
+  if (riskRating < 1 || riskRating > 5) {
+    return { error: "Invalid risk rating" }
+  }
+
   const yearlyPremium = (carValue * riskRating) / 100
   const monthlyPremium = yearlyPremium / 12
 

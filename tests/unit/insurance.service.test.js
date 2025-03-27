@@ -25,15 +25,24 @@ describe("Insurance Service: Calculate Monthly and Yearly Premium", () => {
     const carValue = -5000
     const riskRating = 5
     const result = calculateMonthlyAndYearlyPremium(carValue, riskRating)
-    console.log(result)
     expect(result).toStrictEqual({ error: "Invalid car value" })
   })
 
   // Test Case 4: Edge Case: Risk rating is below minimum
-  test.todo("car value is 5000 and risk rating is 0")
+  test("car value is 5000 and risk rating is 0", () => {
+    const carValue = 5000
+    const riskRating = 0
+    const result = calculateMonthlyAndYearlyPremium(carValue, riskRating)
+    expect(result).toStrictEqual({ error: "Invalid risk rating" })
+  })
 
   // Test Case 5: Edge Case: Risk rating is above maximum
-  test.todo("car value is 5000 and risk rating is 6")
+  test("car value is 5000 and risk rating is 6", () => {
+    const carValue = 5000
+    const riskRating = 6
+    const result = calculateMonthlyAndYearlyPremium(carValue, riskRating)
+    expect(result).toStrictEqual({ error: "Invalid risk rating" })
+  })
 
   // Test Case 6: Edge Case: Car value is a string
   test.todo("car value is '5000' and risk rating is 5")
