@@ -8,7 +8,7 @@ describe('POST /api/v1/calculate-discount', () => {
             .send({ age: 30, experience: 6 });
 
         expect(response.status).toBe(200);
-        expect(response.body.discount_rate).toBe(10);
+        expect(response.body.discount_rate).toBe(10);  // Another option for these parts could be - expect(response.body).toHaveProperty('discount_rate', 10); Using .toHaveProperty helps to avoid runtime errors if the key is missing :) 
     });
 
     it('should return error for invalid input', async () => {
@@ -20,3 +20,5 @@ describe('POST /api/v1/calculate-discount', () => {
         expect(response.body.error).toBe('Invalid input');
     });
 });
+
+// Code is great!!
