@@ -2,7 +2,7 @@
 const request = require("supertest");
 const app = require("../src/app"); 
 
-describe("Insurance Service: Calculate Car Value", () => {
+describe("Car value API tests", () => {
 
     // ✅ Test with a valid car model and year
     test("Valid car model and year", async () => {
@@ -11,7 +11,7 @@ describe("Insurance Service: Calculate Car Value", () => {
             .send({ carModel: "Civic", year: 2020 });
 
         expect(response.status).toBe(200);
-        expect(response.body).toHaveProperty("car_value");  // Only checking for car_value now
+        expect(response.body).toHaveProperty("car_value");  
     });
 
     // ✅ Test for missing carModel and year
@@ -21,7 +21,7 @@ describe("Insurance Service: Calculate Car Value", () => {
             .send({});
 
         expect(response.status).toBe(400);
-        expect(response.body).toStrictEqual({ error: "carModel and year are required" });
+        expect(response.body).toStrictEqual({ error: "Car model and year are required" });
     });
 
     // ✅ Test for a model with special characters (should still work)

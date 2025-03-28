@@ -1,7 +1,7 @@
 
+
 const request = require("supertest"); 
-const { app } = require("../../src/express"); 
-const calculateCarValue = require("../../src/carValue.js"); 
+const { app } = require("../../src/express.js");  
 
 // Group related tests for the Car Value API
 describe("Car Value API Tests", () => {
