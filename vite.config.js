@@ -1,10 +1,9 @@
 
-import { defineConfig } from 'vite'; // Import the defineConfig function from Vite
+import { defineConfig } from 'vite';
 
-// Export the Vite configuration
 export default defineConfig({
-    root: './', // Set the root directory for Vite (relative to the current file)
+    root: './', 
     build: {
-        outDir: 'dist', // Specify the output directory for the build files
+        outDir: 'dist', 
     },
 });
