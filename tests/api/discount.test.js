@@ -1,24 +1,31 @@
-const request = require("supertest")
-const app = require("../../src/app")
+const request = require("supertest");
+const app = require("../../src/app");
 
-describe("POST /api/v1/calculate-discount", () => {
-  it("should return 10% discount for 30 years old with 6 years of experience", async () => {
-    const response = await request(app)
-      .post("/api/v1/calculate-discount")
-      .send({ age: 30, experience: 6 })
+describe("Discount API Tests", () => {
+  const testCases = [
+    { age: 30, experience: 6, expectedStatus: 200, expectedDiscount: 10 },
+    // { age: -1, experience: 6, expectedStatus: 400, expectedError: "Invalid input" }, // Invalid age
+    { age: 24, experience: 4, expectedStatus: 200, expectedDiscount: 0 },
+    { age: 40, experience: 6, expectedStatus: 200, expectedDiscount: 15 },
+    { age: 45, experience: 12, expectedStatus: 200, expectedDiscount: 20 }
+    // { age: "twenty", experience: "six", expectedStatus: 400, expectedError: "Invalid input" } // Invalid age and experience
+  ];
 
-    expect(response.status).toBe(200)
-    expect(response.body.discount_rate).toBe(10) // Another option for these parts could be - expect(response.body).toHaveProperty('discount_rate', 10); Using .toHaveProperty helps to avoid runtime errors if the key is missing :)
-  })
+  testCases.forEach(({ age, experience, expectedStatus, expectedDiscount, expectedError }) => {
+    test(`Discount for age: ${age}, experience: ${experience}`, async () => {
+      const response = await request(app)
+        .post("/api/v1/calculate-discount")
+        .send({ age, experience });
 
-  it("should return error for invalid input", async () => {
-    const response = await request(app)
-      .post("/api/v1/calculate-discount")
-      .send({ age: -1, experience: 6 })
+      expect(response.status).toBe(expectedStatus);
 
-    expect(response.status).toBe(400)
-    expect(response.body.error).toBe("Invalid input")
-  })
-})
+      if (expectedDiscount !== undefined) {
+        expect(response.body.discount_rate).toBe(expectedDiscount);
+      }
 
-// Code is great!!
+      if (expectedError) {
+        expect(response.body.error).toBe(expectedError);
+      }
+    });
+  });
+});

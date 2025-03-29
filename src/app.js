@@ -1,19 +1,25 @@
 const express = require("express")
 const bodyParser = require("body-parser")
 const carValueRoutes = require("./routes/carValueRoutes") // Updated route import
-const discountRoute = require("../src/routes/discountRoute")
+const discountRoute = require("./routes/discountRoute")
 
-// 앱 인스턴스 생성
+
+// Create an instance of the app
 const app = express()
 app.use(bodyParser.json())
 
 app.use(express.json())
 
 //========== ROUTES ==========//
-// 할인 계산 API 경로 설정
+// Set the route for the discount calculation API
 app.use(carValueRoutes)
-app.use("/api/v1", discountRoute)
+app.use("/api/v1", discountRoute);
 //============================//
 
-// 앱 인스턴스를 외부에서 사용할 수 있도록 export
+app.use((err, req, res, next) => {
+    console.error("Unhandled error:", err);  // 로그 추가
+    res.status(500).json({ error: "Internal Server Error" });
+  });
+
+// Export the app instance for use in other files
 module.exports = app
