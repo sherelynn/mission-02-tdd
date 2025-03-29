@@ -15,7 +15,7 @@ app.post("/calculate-car-value", (req, res) => {
   }
 })
 
-// 포트 설정
+// PORT~
 const PORT = process.env.PORT || 3000
 
 if (process.env.NODE_ENV !== "test") {
