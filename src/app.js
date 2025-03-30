@@ -1,9 +1,8 @@
 const express = require("express")
 const bodyParser = require("body-parser")
-const carValueRoutes = require("./routes/carValueRoutes") // Updated route import
+const carValueRoutes = require("./routes/carValueRoutes") 
 const discountRoute = require("../src/routes/discountRoute")
 const premiumQuoteRoutes = require("../src/routes/premiumQuoteRoutes")
-const discountRoute = require("./routes/discountRoute")
 
 // Create an instance of the app
 const app = express()

@@ -18,7 +18,7 @@ describe("Car Value Calculation Tests", () => {
 
   test("Empty car model should throw an error", () => {
     expect(() => calculateCarValue("", 2020)).toThrow(
-      "Car model and year are required"
+      "Car model is required"
     )
   })
 
