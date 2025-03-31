@@ -15,15 +15,50 @@ describe("POST /api/v1/quote/calculate-premium", () => {
     })
   })
 
-  // Test Case 2: Edge Case: Car value is 0
-  test.todo("should return error when car value is 0")
+  // Test Case 2: Edge Case: Invalid Car Values (zero, negative, string, below minimum, above maximum, null, undefined)
+  test.each([[0], [-5000], ["5000"], 499, 100000001])(
+    "should return error when car value is %p",
+    async carValue => {
+      const response = await request(app)
+        .post("/api/v1/quote/calculate-premium")
+        .send({ carValue, riskRating: 5 })
 
-  // Test Case 3: Edge Case: Risk rating out of range
-  test.todo("should return error when risk rating is out of range")
+      expect(response.status).toBe(400)
+      expect(response.body).toEqual({
+        error: "Invalid car value",
+      })
+    }
+  )
 
-  // Test Case 4: Edge Case: Invalid types
-  test.todo("should return error when car value or risk rating is invalid")
+  // Test Case 3: Edge Case: Risk Rating Invalid Type and Out of Range (below minimum: zero | negative, above maximum, string, float, null, undefined)
+  test.each([[0], [-1], [6], ["3"], [3.5]])(
+    "should return error when risk rating is %p",
+    async riskRating => {
+      const response = await request(app)
+        .post("/api/v1/quote/calculate-premium")
+        .send({ carValue: 5000, riskRating })
+
+      expect(response.status).toBe(400)
+      expect(response.body).toEqual({
+        error: "Invalid risk rating",
+      })
+    }
+  )
 
   // Test Case 5: Edge Case: Missing parameters
-  test.todo("should return error when parameters are missing")
+  test.each([
+    [{ carValue: 5000 }, { error: "Invalid risk rating" }],
+    [{ riskRating: 5 }, { error: "Invalid car value" }],
+    [{}, { error: "Invalid parameters" }],
+  ])(
+    "should return error when parameters are missing: %p ",
+    async (requestBody, expectedError) => {
+      const response = await request(app)
+        .post("/api/v1/quote/calculate-premium")
+        .send(requestBody)
+
+      expect(response.status).toBe(400)
+      expect(response.body.error).toBeTruthy()
+    }
+  )
 })

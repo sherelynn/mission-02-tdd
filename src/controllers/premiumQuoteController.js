@@ -6,9 +6,14 @@ const calculatePremium = (req, res) => {
 
     // Parse values to number and pass to service
     const result = premiumQuoteService.calculateMonthlyAndYearlyPremium(
-      parseFloat(carValue),
-      parseFloat(riskRating)
+      carValue,
+      riskRating
     )
+
+    // If error is returned from service, send error response
+    if (result.error) {
+      return res.status(400).json({ error: result.error })
+    }
 
     // Return successful result
     return res.status(200).json(result)
