@@ -1,4 +1,5 @@
-const calculateCarValue = require("../../src/services/carValue")
+
+import { calculateCarValue } from "../../src/services/carValue"
 
 describe("Car Value Calculation Tests", () => {
   test("Valid car model and year", () => {
@@ -18,7 +19,7 @@ describe("Car Value Calculation Tests", () => {
 
   test("Empty car model should throw an error", () => {
     expect(() => calculateCarValue("", 2020)).toThrow(
-      "Car model is required"
+      "Car model and year are required"
     )
   })
 
