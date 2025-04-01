@@ -1,5 +1,5 @@
 const request = require("supertest")
-const app = require("../../src/app")
+const app = require("../../src/express")
 
 describe("POST /api/v1/quote/calculate-premium", () => {
   // Test Case 1: Standard Case: Within expected range

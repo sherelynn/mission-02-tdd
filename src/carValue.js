@@ -1,4 +1,3 @@
-// This function is used in the server.js and express.js in the src folder
 
 function calculateCarValue(carModel, year) {
   if (!carModel || !year) {

@@ -1,3 +1,4 @@
+
 const calculateCarValue = (carModel, year) => {
   if (!carModel || !year) {
     throw new Error("Car model is required")
@@ -17,4 +18,4 @@ const calculateCarValue = (carModel, year) => {
   return value
 }
 
-module.exports = calculateCarValue
+module.exports = calculateCarValue;

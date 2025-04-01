@@ -1,5 +1,7 @@
+
 const request = require("supertest")
-const app = require("../../src/app")
+const app = require("../../src/express")
+console.log(app)
 
 describe("Car value API tests", () => {
   // ✅ Test with a valid car model and year
@@ -44,7 +46,7 @@ describe("Car value API tests", () => {
     expect(response.body).toHaveProperty("car_value")
   })
 
-  // ✅ Test for a model with mixed case (e.g., "BMW")
+  // ✅ Test for a model with mixed case (e.g., "BMw")
   test("Model with mixed case should still work", async () => {
     const response = await request(app)
       .post("/api/v1/calculate-car-value")

@@ -1,11 +1,9 @@
+
 const calculateCarValue = require("../services/carValue")
 
 function calculateCarValueHandler(req, res) {
   try {
     const { carModel, year } = req.body
-
-    //debugging log
-    // console.log("carModel:", carModel, "year:", year);
 
     // Validate the inputs
     if (!carModel || !year) {
@@ -26,6 +24,5 @@ function calculateCarValueHandler(req, res) {
     return res.status(500).json({ error: "Internal server error" })
   }
 }
-
 
 module.exports = { calculateCarValueHandler }
