@@ -1,10 +1,8 @@
 
 const request = require("supertest")
 const app = require("../../src/express")
-console.log(app)
 
 describe("Car value API tests", () => {
-  // ✅ Test with a valid car model and year
   test("Valid car model and year", async () => {
     const response = await request(app)
       .post("/api/v1/calculate-car-value")
@@ -22,7 +20,7 @@ describe("Car value API tests", () => {
   
     expect(response.status).toBe(400)
     expect(response.body).toStrictEqual({
-      error: "Invalid year",
+      error: "Valid year (positive number) is required",
     })
   })
 
@@ -34,7 +32,7 @@ describe("Car value API tests", () => {
 
     expect(response.status).toBe(400)
     expect(response.body).toStrictEqual({
-      error: "Car model and year are required",
+      error: "Valid car model (non-empty string) is required",
     })
   })
 
