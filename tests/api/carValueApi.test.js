@@ -30,7 +30,7 @@ describe("Car Value API Tests", () => {
       .send({ carModel: "BMW", year: null })
 
     expect(response.status).toBe(400)
-    expect(response.body.error).toBe("Car model and year are required")
+    expect(response.body.error).toBe("Valid year (positive number) is required")
   })
 
   // Test case: Model with leading/trailing spaces should still work
