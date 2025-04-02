@@ -78,5 +78,5 @@ Provide a reliable and scalable API for integration
 ## Contributors
 
 Tessa - VikingQueen85
-Sherelynn -
-Clark -
+Sherelynn - Sherelynn
+Clark - 
