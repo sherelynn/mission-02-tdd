@@ -31,6 +31,7 @@ npm start
 npm test
 npm install <package-name>
 ```
+
 ## More Details
 
 This project is a vehicle insurance API designed to automate risk assessment and premium calculations based on a car’s model, year, and other factors. The API provides endpoints to determine car values, assess risk ratings, and generate premium quotes for users.
@@ -81,3 +82,37 @@ Tessa - VikingQueen85
 Sherelynn - Sherelynn
 Clark - hiu03052
 
+---
+
+## My Key Contributions - Sherelynn
+
+### Premium Quote System Architecture
+
+- **Premium Quote Controller**: Designed and implemented the main controller logic for handling premium calculation requests with comprehensive error handling and validation
+- **Premium Quote Service**: Developed the core business logic service that calculates monthly and yearly insurance premiums with robust input validation
+- **Premium Quote Routes**: Created RESTful API endpoints for premium calculation functionality
+
+### Key Technical Implementations
+
+- **Comprehensive Input Validation**: Implemented validation for car values ($500 - $100,000,000) and risk ratings (1-5 integers)
+- **Premium Calculation Algorithm**: Developed the core formula: `(carValue × riskRating) / 100` for yearly premiums
+- **Error Handling**: Built robust error handling for edge cases including invalid types, out-of-range values, and missing parameters
+- **Decimal Precision**: Ensured accurate financial calculations with proper decimal formatting to 2 places
+
+### Testing
+
+- **Unit Tests**: Created comprehensive unit tests for the premium quote service covering all validation scenarios
+- **API Integration Tests**: Developed thorough API tests including boundary value testing and edge case validation
+- **Test Coverage**: Implemented test cases for:
+  - Standard calculation scenarios
+  - Boundary value testing (minimum/maximum acceptable values)
+  - Invalid input handling (negative values, strings, null, undefined)
+  - Missing parameter validation
+  - Type validation (ensuring integers for risk rating)
+
+### Code Quality & Best Practices
+
+- **Modular Architecture**: Separated concerns with dedicated controller, service, and route files
+- **Constants Management**: Used meaningful constants for validation boundaries and calculations
+- **Error Response Standardization**: Consistent error message format across all validation scenarios
+- **Clean Code Principles**: Implemented readable, maintainable code with clear function names and documentation
